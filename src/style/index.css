@@ -14,6 +14,12 @@
   float: right;
 }
 
+.filter {
+  padding: 5px;
+  margin: auto;
+  text-align: center;
+}
+
 .list-item {
   display: inline-block;
 }

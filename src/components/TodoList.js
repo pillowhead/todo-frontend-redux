@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import TodoItem from "./TodoItem";
 import InputForm from "./InputForm";
+import Filter from "./Filter";
 import TodoService from "./TodoService";
 import { connect } from "react-redux";
 import { setTasks } from "../actions";
@@ -24,6 +25,23 @@ class TodoList extends Component {
     );
   }
 
+  changeFilter(filter) {
+    this.setState({ filter });
+  }
+
+  applyFilter(unfilteredItems, filter) {
+    switch (filter) {
+      case "completed":
+        return unfilteredItems.filter(item => item.completed === true);
+
+      case "active":
+        return unfilteredItems.filter(item => item.completed !== true);
+
+      default:
+        return unfilteredItems;
+    }
+  }
+
   render() {
     const title = this.props.title;
     const addNewMessage = "Add new task...";
@@ -36,11 +54,12 @@ class TodoList extends Component {
 
         <div>
           <ul className="list-group">
-            {this.props.tasks.map(item => {
+            {this.applyFilter(this.props.tasks, this.state.filter).map(item => {
               return <TodoItem key={item.id} item={item} />;
             })}
           </ul>
         </div>
+        <Filter changeFilter={this.changeFilter.bind(this)} />
       </div>
     );
   }
