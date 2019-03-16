@@ -19,7 +19,8 @@ const TodoService = {
     return axios.post("http://localhost:8080/todos", data); //  body `{"text":"..."}`
   },
 
-  updateTodoItem(id, data) {
+  updateTodoItem(id, text) {
+    let data = { text: text };
     return axios.post("http://localhost:8080/todos/" + id, data);
   },
 

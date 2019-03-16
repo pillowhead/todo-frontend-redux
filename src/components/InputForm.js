@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import KeyCode from "keycode-js";
 import { connect } from "react-redux";
-import { addTask } from "../actions";
+import { addTask, renameTask } from "../actions";
 import TodoService from "./TodoService";
 
 class InputForm extends Component {
@@ -30,6 +30,14 @@ class InputForm extends Component {
         );
         this.clear();
       }
+    } else if (this.props.option === "rename") {
+      const id = this.props.id;
+
+      if (e.keyCode === KeyCode.KEY_RETURN && text) {
+        this.props.renameTask(id, text);
+        TodoService.updateTodoItem(id, text);
+        this.props.updateRenameId("");
+      }
     }
   }
 
@@ -53,5 +61,5 @@ class InputForm extends Component {
 
 export default connect(
   null,
-  { addTask }
+  { addTask, renameTask }
 )(InputForm);

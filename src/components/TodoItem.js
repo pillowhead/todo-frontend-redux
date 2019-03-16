@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import TodoService from "./TodoService";
+import InputForm from "./InputForm";
 import { connect } from "react-redux";
 import {
   deleteTaskById,
@@ -24,7 +25,19 @@ class TodoItem extends Component {
   }
 
   render() {
-    let { item } = this.props;
+    let { item, renameId, updateRenameId } = this.props;
+    const handleRename = () => updateRenameId(item.id);
+
+    const renameCode =
+      item.id === renameId ? (
+        <InputForm
+          option="rename"
+          message="Rename to..."
+          id={item.id}
+          renameId={renameId}
+          updateRenameId={updateRenameId}
+        />
+      ) : null;
 
     return (
       <li className="list-group-item">
@@ -43,12 +56,20 @@ class TodoItem extends Component {
           <div className="right-button">
             <button
               type="button"
+              className="btn btn-outline-warning"
+              onClick={handleRename}
+            >
+              Rename
+            </button>
+            <button
+              type="button"
               className="btn btn-outline-danger"
               onClick={() => this.handleDelete(item.id)}
             >
               Delete
             </button>
           </div>
+          {renameCode}
         </div>
       </li>
     );

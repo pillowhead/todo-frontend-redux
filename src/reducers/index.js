@@ -4,7 +4,8 @@ import {
   ADD_TASK,
   DELETE_TASK,
   COMPLETE_TASK,
-  INCOMPLETE_TASK
+  INCOMPLETE_TASK,
+  RENAME_TASK
 } from "../actions";
 //import TodoService from "../components/TodoService";
 
@@ -36,6 +37,15 @@ function tasks(state = [], action) {
       tasks = state.map(item => {
         if (item.id === action.id) {
           item.completed = false;
+        }
+        return item;
+      });
+      return tasks;
+
+    case RENAME_TASK:
+      tasks = state.map(item => {
+        if (item.id === action.id) {
+          item.text = action.text;
         }
         return item;
       });

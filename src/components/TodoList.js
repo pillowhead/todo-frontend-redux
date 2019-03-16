@@ -11,6 +11,7 @@ class TodoList extends Component {
     super(props);
 
     this.state = {
+      renameId: "",
       filter: "all"
     };
   }
@@ -23,6 +24,12 @@ class TodoList extends Component {
     TodoService.getTodoList(this.state.filter).then(response =>
       this.props.setTasks(response.data)
     );
+  }
+
+  updateRenameId(id) {
+    this.setState({
+      renameId: id
+    });
   }
 
   changeFilter(filter) {
@@ -55,7 +62,14 @@ class TodoList extends Component {
         <div>
           <ul className="list-group">
             {this.applyFilter(this.props.tasks, this.state.filter).map(item => {
-              return <TodoItem key={item.id} item={item} />;
+              return (
+                <TodoItem
+                  key={item.id}
+                  item={item}
+                  renameId={this.state.renameId}
+                  updateRenameId={this.updateRenameId.bind(this)}
+                />
+              );
             })}
           </ul>
         </div>
