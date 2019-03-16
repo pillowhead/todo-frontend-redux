@@ -37,7 +37,7 @@ class TodoList extends Component {
         <div>
           <ul className="list-group">
             {this.props.tasks.map(item => {
-              return <TodoItem key={item.id} text={item.text} />;
+              return <TodoItem key={item.id} item={item} />;
             })}
           </ul>
         </div>

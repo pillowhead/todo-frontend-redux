@@ -1,6 +1,8 @@
 export const SET_TASKS = "SET_TASKS";
 export const ADD_TASK = "ADD_TASK";
-// export const DELETE_TASK = "COMPLETE_TASK";
+export const DELETE_TASK = "DELETE_TASK";
+export const COMPLETE_TASK = "COMPLETE_TASK";
+export const INCOMPLETE_TASK = "INCOMPLETE_TASK";
 
 export function setTasks(items) {
   return {
@@ -16,9 +18,23 @@ export function addTask(item) {
   };
 }
 
-// export function deleteTaskById(id) {
-//   return {
-//     type: DELETE_TASK,
-//     id
-//   };
-// }
+export function deleteTaskById(id) {
+  return {
+    type: DELETE_TASK,
+    id
+  };
+}
+
+export function completeTaskById(id) {
+  return {
+    type: COMPLETE_TASK,
+    id
+  };
+}
+
+export function incompleteTaskById(id) {
+  return {
+    type: INCOMPLETE_TASK,
+    id
+  };
+}
