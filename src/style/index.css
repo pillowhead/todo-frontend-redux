@@ -26,4 +26,5 @@
 
 .clickable {
   cursor: pointer;
+  padding-left: 10px;
 }

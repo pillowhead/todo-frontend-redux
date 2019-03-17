@@ -52,7 +52,7 @@ class Footer extends Component {
           >
             Delete Completed{" "}
             <span role="img" aria-label="Delete All">
-              &#9940;
+              &#10060;
             </span>
           </span>
         </div>

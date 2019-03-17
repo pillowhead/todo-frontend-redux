@@ -33,6 +33,12 @@ class TodoList extends Component {
     });
   }
 
+  clearRenameId(id) {
+    this.setState({
+      renameId: ""
+    });
+  }
+
   changeFilter(filter) {
     this.setState({ filter });
   }
@@ -74,6 +80,7 @@ class TodoList extends Component {
                   item={item}
                   renameId={this.state.renameId}
                   updateRenameId={this.updateRenameId.bind(this)}
+                  clearRenameId={this.clearRenameId.bind(this)}
                 />
               );
             })}

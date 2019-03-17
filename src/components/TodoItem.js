@@ -25,18 +25,27 @@ class TodoItem extends Component {
   }
 
   render() {
-    let { item, renameId, updateRenameId } = this.props;
+    let { item, renameId, updateRenameId, clearRenameId } = this.props;
     const handleRename = () => updateRenameId(item.id);
+    const handleCancelRename = () => clearRenameId();
 
     const renameCode =
       item.id === renameId ? (
-        <InputForm
-          option="rename"
-          message="Rename to..."
-          id={item.id}
-          renameId={renameId}
-          updateRenameId={updateRenameId}
-        />
+        <div>
+          <InputForm
+            option="rename"
+            message="Rename to..."
+            id={item.id}
+            renameId={renameId}
+            updateRenameId={updateRenameId}
+          />
+          <span className="clickable" onClick={handleCancelRename}>
+            <span role="img" aria-label="Cancel Rename">
+              &#9940;
+            </span>
+            Cancel Rename
+          </span>
+        </div>
       ) : null;
 
     return (
@@ -69,7 +78,7 @@ class TodoItem extends Component {
               onClick={() => this.handleDelete(item.id)}
               aria-label="Delete"
             >
-              &#9940;
+              &#10060;
             </span>
           </div>
           <div>{renameCode}</div>

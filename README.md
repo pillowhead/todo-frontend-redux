@@ -10,8 +10,8 @@ Frontend to `https://github.com/morosystems/todo-be`
 
 ## Planned update
 
-- modify rename setup, so that input field can be hidden without renaming task.
+- optimalization on code readability
 
 ## Known issue
 
-- when renaming/editing a task, it's necessary to rename to something else, otherwise the input field doesn't disappear.
+- No known issues currently
