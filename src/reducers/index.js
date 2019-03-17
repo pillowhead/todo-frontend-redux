@@ -9,7 +9,6 @@ import {
   COMPLETE_INCOMPLETED,
   DELETE_COMPLETED
 } from "../actions";
-//import TodoService from "../components/TodoService";
 
 function tasks(state = [], action) {
   let tasks = [];

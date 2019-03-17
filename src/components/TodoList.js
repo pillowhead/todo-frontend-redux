@@ -1,9 +1,11 @@
 import React, { Component } from "react";
+
 import TodoItem from "./TodoItem";
 import InputForm from "./InputForm";
 import Filter from "./Filter";
 import Footer from "./Footer";
 import TodoService from "./TodoService";
+
 import { connect } from "react-redux";
 import { setTasks } from "../actions";
 
@@ -58,7 +60,6 @@ class TodoList extends Component {
 
   render() {
     const title = this.props.title;
-    const addNewMessage = "Add new task...";
 
     return (
       <div className="todolist">
@@ -69,7 +70,7 @@ class TodoList extends Component {
           </span>
         </h1>
 
-        <InputForm message={addNewMessage} option="new" />
+        <InputForm message="Add new task..." option="new" />
 
         <div>
           <ul className="list-group">
@@ -86,6 +87,7 @@ class TodoList extends Component {
             })}
           </ul>
         </div>
+
         <Footer filter={this.state.filter} />
         <Filter
           changeFilter={this.changeFilter.bind(this)}

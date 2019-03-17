@@ -45,7 +45,7 @@ class Footer extends Component {
               &#128065;
             </span>
           </span>
-          {"  "}
+
           <span
             className="clickable"
             onClick={() => this.handleDeleteCompleted()}
