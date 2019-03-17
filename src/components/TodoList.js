@@ -56,7 +56,12 @@ class TodoList extends Component {
 
     return (
       <div className="todolist">
-        <h1>{title}</h1>
+        <h1>
+          {title}{" "}
+          <span role="img" aria-label={title}>
+            &#128199;
+          </span>
+        </h1>
 
         <InputForm message={addNewMessage} option="new" />
 
@@ -75,7 +80,10 @@ class TodoList extends Component {
           </ul>
         </div>
         <Footer filter={this.state.filter} />
-        <Filter changeFilter={this.changeFilter.bind(this)} />
+        <Filter
+          changeFilter={this.changeFilter.bind(this)}
+          filter={this.state.filter}
+        />
       </div>
     );
   }

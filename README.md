@@ -10,7 +10,7 @@ Frontend to `https://github.com/morosystems/todo-be`
 
 ## Planned update
 
-- make the filter buttons show which is enabled at the moment.
+- modify rename setup, so that input field can be hidden without renaming task.
 
 ## Known issue
 
