@@ -8,13 +8,14 @@ const options = {
 
 export default function Filter(props) {
   const { changeFilter } = props;
+  let style = "btn btn-outline-dark";
 
   return (
     <div className="filter">
       {Object.keys(options).map(key => (
         <button
           type="button"
-          className="btn btn-outline-dark"
+          className={style}
           key={key}
           onClick={() => changeFilter(key)}
         >

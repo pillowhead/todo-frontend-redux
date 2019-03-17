@@ -50,24 +50,27 @@ class TodoItem extends Component {
                 ? this.handleIncomplete(item.id)
                 : this.handleComplete(item.id)
             }
-          />
-
+          />{" "}
           {item.text}
           <div className="right-button">
-            <button
-              type="button"
-              className="btn btn-outline-warning"
+            {/* Rename Button */}
+            <span
+              role="img"
+              className="clickable"
               onClick={handleRename}
+              aria-label="Rename"
             >
-              Rename
-            </button>
-            <button
-              type="button"
-              className="btn btn-outline-danger"
+              &#9999;
+            </span>{" "}
+            {/* Delete Button */}
+            <span
+              role="img"
+              className="clickable"
               onClick={() => this.handleDelete(item.id)}
+              aria-label="Delete"
             >
-              Delete
-            </button>
+              &#9940;
+            </span>
           </div>
           <div>{renameCode}</div>
         </div>

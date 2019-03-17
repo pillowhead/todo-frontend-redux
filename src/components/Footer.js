@@ -35,23 +35,26 @@ class Footer extends Component {
         <strong>{completedCount}</strong>
         {" completed."}
 
-        {"  "}
         <div className="right-button">
-          <button
-            type="button"
-            className="btn btn-success"
+          <span
+            className="clickable"
             onClick={() => this.handleCompleteFiltered(filter)}
           >
-            Complete Visible
-          </button>
-
-          <button
-            type="button"
-            className="btn btn-danger"
+            Complete Visible{" "}
+            <span role="img" aria-label="Delete All">
+              &#128065;
+            </span>
+          </span>
+          {"  "}
+          <span
+            className="clickable"
             onClick={() => this.handleDeleteCompleted()}
           >
-            Delete Completed
-          </button>
+            Delete Completed{" "}
+            <span role="img" aria-label="Delete All">
+              &#9940;
+            </span>
+          </span>
         </div>
       </div>
     );
