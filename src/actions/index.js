@@ -4,6 +4,8 @@ export const DELETE_TASK = "DELETE_TASK";
 export const COMPLETE_TASK = "COMPLETE_TASK";
 export const INCOMPLETE_TASK = "INCOMPLETE_TASK";
 export const RENAME_TASK = "RENAME_TASK";
+export const COMPLETE_INCOMPLETED = "COMPLETE_INCOMPLETED";
+export const DELETE_COMPLETED = "DELETE_COMPLETED";
 
 export function setTasks(items) {
   return {
@@ -45,5 +47,17 @@ export function renameTask(id, text) {
     type: RENAME_TASK,
     id,
     text
+  };
+}
+
+export function completeIncompleted() {
+  return {
+    type: COMPLETE_INCOMPLETED
+  };
+}
+
+export function deleteCompleted() {
+  return {
+    type: DELETE_COMPLETED
   };
 }

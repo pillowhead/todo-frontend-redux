@@ -1,17 +1,8 @@
 import axios from "axios";
 
 const TodoService = {
-  getTodoList(filter) {
-    switch (filter) {
-      case "completed":
-        return axios.get("http://localhost:8080/todos/completed");
-
-      case "active":
-        return axios.get("http://localhost:8080/todos/incompleted");
-
-      default:
-        return axios.get("http://localhost:8080/todos");
-    }
+  getTodoList() {
+    return axios.get("http://localhost:8080/todos");
   },
 
   createTodoItem(text) {

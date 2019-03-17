@@ -69,7 +69,7 @@ class TodoItem extends Component {
               Delete
             </button>
           </div>
-          {renameCode}
+          <div>{renameCode}</div>
         </div>
       </li>
     );

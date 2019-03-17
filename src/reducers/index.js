@@ -5,7 +5,9 @@ import {
   DELETE_TASK,
   COMPLETE_TASK,
   INCOMPLETE_TASK,
-  RENAME_TASK
+  RENAME_TASK,
+  COMPLETE_INCOMPLETED,
+  DELETE_COMPLETED
 } from "../actions";
 //import TodoService from "../components/TodoService";
 
@@ -49,6 +51,17 @@ function tasks(state = [], action) {
         }
         return item;
       });
+      return tasks;
+
+    case COMPLETE_INCOMPLETED:
+      tasks = state.map(item => {
+        if (!item.completed) item.completed = true;
+        return item;
+      });
+      return tasks;
+
+    case DELETE_COMPLETED:
+      tasks = state.filter(item => !item.completed);
       return tasks;
 
     default:

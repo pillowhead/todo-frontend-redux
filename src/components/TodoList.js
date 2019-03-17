@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import TodoItem from "./TodoItem";
 import InputForm from "./InputForm";
 import Filter from "./Filter";
+import Footer from "./Footer";
 import TodoService from "./TodoService";
 import { connect } from "react-redux";
 import { setTasks } from "../actions";
@@ -21,7 +22,7 @@ class TodoList extends Component {
   }
 
   load() {
-    TodoService.getTodoList(this.state.filter).then(response =>
+    TodoService.getTodoList().then(response =>
       this.props.setTasks(response.data)
     );
   }
@@ -73,6 +74,7 @@ class TodoList extends Component {
             })}
           </ul>
         </div>
+        <Footer filter={this.state.filter} />
         <Filter changeFilter={this.changeFilter.bind(this)} />
       </div>
     );

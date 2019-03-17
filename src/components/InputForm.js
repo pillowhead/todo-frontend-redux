@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import KeyCode from "keycode-js";
+import TodoService from "./TodoService";
+
 import { connect } from "react-redux";
 import { addTask, renameTask } from "../actions";
-import TodoService from "./TodoService";
 
 class InputForm extends Component {
   constructor(props) {
